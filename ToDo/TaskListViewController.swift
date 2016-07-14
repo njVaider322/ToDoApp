@@ -19,7 +19,6 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
     }
 

@@ -24,13 +24,19 @@ class MatrixCategoryCellView: UICollectionViewCell {
         
         switch index {
         case 0:
-            backArrow.hidden = true
-            category.text    = categoryValue
+            backArrow.hidden    = true
+            forwardArrow.hidden = false
+            category.text       = categoryValue
         case 1:
-            category.text = categoryValue
+            backArrow.hidden    = false
+            forwardArrow.hidden = false
+            category.text       = categoryValue
         case 2:
-            category.text = categoryValue
+            backArrow.hidden    = false
+            forwardArrow.hidden = false
+            category.text       = categoryValue
         case 3:
+            backArrow.hidden    = false
             forwardArrow.hidden = true
             category.text       = categoryValue
         default:
