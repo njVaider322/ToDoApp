@@ -8,14 +8,19 @@
 
 import UIKit
 
-class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDataSource {
+class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,UrgentCellDelegate,ImportantCellDelegate, UITextViewDelegate {
     
     @IBOutlet weak var newTaskTableView: UITableView!
+    @IBOutlet weak var cancelBarButton:  UIBarButtonItem!
+    @IBOutlet weak var saveBarButton:    UIBarButtonItem!
+    
+    var taskModel: NewTaskModel?
+    var activeTextView: UITextView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        taskModel = NewTaskModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,10 +56,14 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
         switch indexPath.row {
         case 0:
             cell = tableView.dequeueReusableCellWithIdentifier("DescriptionCellID", forIndexPath: indexPath) as! DescriptionCellView
+            (cell as! DescriptionCellView).descriptionTextView.delegate = self
+            activeTextView = (cell as! DescriptionCellView).descriptionTextView
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("ImportantCellID", forIndexPath: indexPath) as! ImportantCellView
+            (cell as! ImportantCellView).delegate = self
         case 2:
             cell = tableView.dequeueReusableCellWithIdentifier("UrgentCellID", forIndexPath: indexPath) as! UrgentCellView
+            (cell as! UrgentCellView).delegate = self
         default:
             cell = UITableViewCell()
         }
@@ -62,7 +71,56 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
         return cell!
     }
     
+    // MARK: ImportantCellDelegate Methods
+    func didMakeImportantCellSelection(selectedValue: Bool) {
+        
+        taskModel?.isImportant = selectedValue
+        taskModel?.computeTaskPriority()
+    }
     
+    // MARK: UrgentCellDelegate Methods
+    func didMakeUrgentCellSelection(selectedValue: Bool) {
+        
+        taskModel?.isUrgent = selectedValue
+        taskModel?.computeTaskPriority()
+    }
+    
+    // MARK: UITextViewDelegate
+    func textViewDidBeginEditing(textView: UITextView) {
+        /*
+         Provide a "Done" button for the user to select to signify completion
+         with writing text in the text view.
+         */
+        let doneBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action:#selector(NewTaskViewController.doneBarButtonItemClicked) )
+        
+        navigationItem.setRightBarButtonItem(doneBarButtonItem, animated: true)
+    }
+    
+   /* func textViewDidChange(textView: UITextView) {
+        taskModel?.taskDescription = textView.text.characters.count > 0 ? textView.text : ""
+        print(taskModel?.taskDescription)
+    }*/
+    
+    // MARK: Bar Button Item Actions Method
+    func doneBarButtonItemClicked() {
+        
+        taskModel?.taskDescription = activeTextView!.text.characters.count > 0 ? activeTextView!.text : ""
+        print(taskModel?.taskDescription)
+        
+        // Dismiss the keyboard by removing it as the first responder.
+        activeTextView!.resignFirstResponder()
+        
+        navigationItem.setRightBarButtonItem(nil, animated: true)
+    }
+    
+    // MARK: - Cancel and Save Action Methods
+    @IBAction func cancel(sender:UIBarButtonItem) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+    
+    @IBAction func save(sender:UIBarButtonItem) {
+        navigationController?.popViewControllerAnimated(true)
+    }
     
     /*
     // MARK: - Navigation

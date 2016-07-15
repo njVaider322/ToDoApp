@@ -8,11 +8,16 @@
 
 import UIKit
 
+protocol UrgentCellDelegate {
+    func didMakeUrgentCellSelection(selectedValue: Bool)
+}
+
 class UrgentCellView: UITableViewCell {
     
     @IBOutlet weak var isUrgentButton: UIButton!
     @IBOutlet weak var notUrgentButton: UIButton!
     
+    var delegate: UrgentCellDelegate?
     var isUrgent = false
     
     override func awakeFromNib() {
@@ -27,6 +32,22 @@ class UrgentCellView: UITableViewCell {
     }
     
     @IBAction func handleTaskUrgentSelection(sender: UIButton) {
+        let selectButton = sender
         
+        switch selectButton.tag {
+        case 1:
+            isUrgentButton.selected  = true
+            notUrgentButton.selected = false
+            isUrgent                 = true
+        case 2:
+            isUrgentButton.selected  = false
+            notUrgentButton.selected = true
+            isUrgent                 = false
+        default:
+            isUrgentButton.selected  = false
+            notUrgentButton.selected = false
+        }
+        
+        delegate?.didMakeUrgentCellSelection(isUrgent)
     }
 }
