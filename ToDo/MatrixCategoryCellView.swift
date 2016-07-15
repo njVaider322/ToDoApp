@@ -16,33 +16,34 @@ class MatrixCategoryCellView: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        category.text = ""
+    
     }
 
     func configureCell(index: Int, forCategory categoryValue:String)-> Void {
         
         switch index {
         case 0:
-            backArrow.hidden    = true
-            forwardArrow.hidden = false
+         //   backArrow.hidden    = true
+         //   forwardArrow.hidden = false
             category.text       = categoryValue
         case 1:
-            backArrow.hidden    = false
-            forwardArrow.hidden = false
+        //    backArrow.hidden    = false
+        //    forwardArrow.hidden = false
             category.text       = categoryValue
         case 2:
-            backArrow.hidden    = false
-            forwardArrow.hidden = false
+         //   backArrow.hidden    = false
+         //   forwardArrow.hidden = false
             category.text       = categoryValue
         case 3:
-            backArrow.hidden    = false
-            forwardArrow.hidden = true
+         //   backArrow.hidden    = false
+         //   forwardArrow.hidden = true
             category.text       = categoryValue
         default:
-            backArrow.hidden    = true
-            forwardArrow.hidden = true
+         //   backArrow.hidden    = true
+        //    forwardArrow.hidden = true
             category.text       = "No Category"
         }
+        
+        category.sizeToFit()
     }
 }
