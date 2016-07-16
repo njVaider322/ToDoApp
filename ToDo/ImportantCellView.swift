@@ -58,13 +58,13 @@ class ImportantCellView: UITableViewCell {
             notImportantButton.selected = false
             isImportant                 = true
         case 2:
-            isImportantButton.selected  = false
-            notImportantButton.selected = true
-            isImportant                 = false
-        case 3:
             isImportantButton.selected  = true
             notImportantButton.selected = false
             isImportant                 = true
+        case 3:
+            isImportantButton.selected  = false
+            notImportantButton.selected = true
+            isImportant                 = false
         case 4:
             isImportantButton.selected  = false
             notImportantButton.selected = true

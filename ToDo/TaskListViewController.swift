@@ -13,31 +13,43 @@ import CoreData
 class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,TaskCompleted {
 
     @IBOutlet weak var categorySegmentedControl: UISegmentedControl!
-    @IBOutlet weak var taskListTableView: UITableView!
-    @IBOutlet weak var categoryLabel:     UILabel!
-    @IBOutlet weak var itemsCountBarButton: UIBarButtonItem!
+    @IBOutlet weak var taskListTableView:        UITableView!
+    @IBOutlet weak var categoryLabel:            UILabel!
+    @IBOutlet weak var itemsCountBarButton:      UIBarButtonItem!
     
     var toDoTask: Tasks?
     let matrixCategories = ["IMPORTANT AND URGENT","IMPORTANT BUT NOT URGENT","NOT IMPORTANT BUT URGENT", "NOT IMPORTANT AND NOT URGENT"]
     var taskList    = Array<Tasks>()
     let taskListQueue: dispatch_queue_t = dispatch_queue_create("com.ToDo.TaskListQueue",DISPATCH_QUEUE_SERIAL)
     var isEditingSelectedTask = false
-    let taskDataAccess: TDDataAccess = CoreDataAccess()
+    var taskDataAccess: TDDataAccess = CoreDataAccess()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let fontSize       = CGFloat(18)
+        let textColor      = UIColor(red: 0.008, green: 0.784, blue: 0.819, alpha: 1.0)
+        let textAttributes = [NSFontAttributeName:UIFont.systemFontOfSize(fontSize), NSForegroundColorAttributeName:textColor]
+            
+        navigationController?.navigationBar.titleTextAttributes = textAttributes
+      
         let segmentIndex = categorySegmentedControl.selectedSegmentIndex
-        
         categoryLabel.text = matrixCategories[segmentIndex]
         populateTaskList(segmentIndex + 1)
         
         taskListTableView.reloadData()
+        
+        categorySegmentedControl.layer.cornerRadius = 0.6
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        super.viewDidDisappear(true)
+        NSNotificationCenter.defaultCenter().removeObserver(self)
     }
     
     // MARK: Segment Control Action Method
@@ -63,10 +75,11 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         
-        var cellHeight:CGFloat = 44.0
+        var cellHeight = CGFloat(44.0)
         
         if taskList.count > 0 {
             cellHeight += calculateHeightAtIndexPath(indexPath);
+            cellHeight += CGFloat(20.0)
         }
     
         return cellHeight;
@@ -81,12 +94,22 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
             taskCell.item = indexPath.row
             taskCell.taskSelected = taskList[indexPath.row].completed!.boolValue
             taskCell.delegate = self
+            taskCell.taskComplete.hidden = false
         }
         else {
             taskCell.taskDescription.text = ""
+            taskCell.taskComplete.hidden = true
         }
         
         return taskCell
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, editingStyleForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCellEditingStyle {
+        return .Delete
     }
     
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
@@ -96,19 +119,24 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 self.isEditingSelectedTask = true
                 self.toDoTask = self.taskList[indexPath.row]
                 self.performSegueWithIdentifier("NewItem", sender: self)
+                let segmentIndex = self.categorySegmentedControl.selectedSegmentIndex
+                self.populateTaskList(segmentIndex + 1)
             }
         });
         
-        editRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
+        editRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0)
         
         let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
             if self.taskList.count > 0 {
                 self.toDoTask = self.taskList[indexPath.row]
-                self.taskDataAccess.deleteTask((self.toDoTask?.taskId?.integerValue)!)
+                let taskId = (self.toDoTask?.taskId?.integerValue)!
+                self.taskDataAccess.deleteTask(taskId)
+                let segmentIndex = self.categorySegmentedControl.selectedSegmentIndex
+                self.populateTaskList(segmentIndex + 1)
             }
-        });
+        })
         
-        return [deleteRowAction, editRowAction];
+        return [deleteRowAction, editRowAction]
     }
     
     func calculateHeightAtIndexPath(indexPath: NSIndexPath)-> CGFloat {
@@ -138,16 +166,15 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
              
                     if self.taskList.count > 0 {
                         self.taskListTableView?.reloadData()
+                        self.itemsCountBarButton.title = " \(self.taskList.count) Item(s)"
                     }
                 })
             })
         }
-        
         itemsCountBarButton.title = " \(taskList.count) Item(s)"
         taskListTableView.reloadData()
     }
 
-    
     // MARK: - TaskCompleted methods
     func markTaskAsCompleted(isCompleted: Bool, selectItem: Int) {
       
@@ -169,5 +196,13 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
                 isEditingSelectedTask = false
             }
         }
+    }
+    
+    // MARK: - Core Data Access method
+    func didModifyDataBase()-> Void {
+        
+        let segmentIndex = categorySegmentedControl.selectedSegmentIndex
+        populateTaskList(segmentIndex + 1)
+
     }
 }

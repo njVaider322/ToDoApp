@@ -6,7 +6,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--TO DO LIST-->
+        <!--To Do List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="TaskListVC" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="TaskListViewController" customModule="ToDo" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,6 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="backkground" translatesAutoresizingMaskIntoConstraints="NO" id="Y3W-GB-Fzv">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qtc-oA-tXk">
                                 <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,6 +43,7 @@
                                                         <constraint firstAttribute="width" constant="30" id="5XN-z0-9Xn"/>
                                                     </constraints>
                                                     <state key="normal" title="Button" image="com_check_default"/>
+                                                    <state key="selected" image="com_check_selected"/>
                                                     <variation key="default">
                                                         <mask key="constraints">
                                                             <exclude reference="5XN-z0-9Xn"/>
@@ -110,14 +114,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="fkr-Q9-v3Z"/>
-                                    <barButtonItem title="0 Item(s)" id="DXf-j4-ADR"/>
+                                    <barButtonItem title="0 Item(s)" id="DXf-j4-ADR">
+                                        <color key="tintColor" red="0.0078431372549019607" green="0.78431372549019607" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="Ngf-j2-K2c"/>
                                     <barButtonItem style="plain" systemItem="add" id="dxh-Od-8IS">
+                                        <color key="tintColor" red="0.0078431372549019607" green="0.78431372549019607" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <segue destination="WxU-M4-h1d" kind="show" identifier="NewItem" id="6XF-Uh-gOK"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.047058823529411764" green="0.21176470588235294" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUb-7j-O6Q">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -125,7 +133,7 @@
                                     <constraint firstAttribute="height" constant="25" id="gac-gU-gPf"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" weight="thin" pointSize="18"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.59607843137254901" green="0.65098039215686276" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                                 <variation key="default">
                                     <mask key="constraints">
@@ -146,6 +154,7 @@
                                     <segment title="3"/>
                                     <segment title="4"/>
                                 </segments>
+                                <color key="tintColor" red="0.59607843137254901" green="0.65098039215686276" blue="0.67450980392156867" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <action selector="handleSelectedSegmentDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="6mY-9s-OtW"/>
                                 </connections>
@@ -153,13 +162,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="Y3W-GB-Fzv" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="4tO-sb-tl7"/>
                             <constraint firstItem="KUb-7j-O6Q" firstAttribute="trailing" secondItem="qtc-oA-tXk" secondAttribute="trailing" id="BBK-Nw-fs6"/>
                             <constraint firstItem="0mu-SK-DVf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Hh9-fa-t8U"/>
                             <constraint firstItem="qtc-oA-tXk" firstAttribute="centerX" secondItem="SX7-yN-DPD" secondAttribute="centerX" id="IKs-Io-naJ"/>
+                            <constraint firstItem="Y3W-GB-Fzv" firstAttribute="trailing" secondItem="SX7-yN-DPD" secondAttribute="trailing" id="KJd-Ef-Lnd"/>
                             <constraint firstItem="0mu-SK-DVf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="MCi-CA-6fI"/>
                             <constraint firstItem="KUb-7j-O6Q" firstAttribute="top" secondItem="0mu-SK-DVf" secondAttribute="bottom" constant="8" symbolic="YES" id="NSL-xd-hM0"/>
                             <constraint firstItem="KUb-7j-O6Q" firstAttribute="leading" secondItem="qtc-oA-tXk" secondAttribute="leading" id="Oq6-bf-Wkg"/>
+                            <constraint firstItem="Y3W-GB-Fzv" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="UmG-Mg-PFV"/>
                             <constraint firstItem="qtc-oA-tXk" firstAttribute="top" secondItem="KUb-7j-O6Q" secondAttribute="bottom" constant="8" symbolic="YES" id="Us4-kG-MCO"/>
+                            <constraint firstItem="Y3W-GB-Fzv" firstAttribute="leading" secondItem="SX7-yN-DPD" secondAttribute="leading" id="Znh-NC-IqU"/>
                             <constraint firstItem="0mu-SK-DVf" firstAttribute="trailing" secondItem="KUb-7j-O6Q" secondAttribute="trailing" id="cQf-il-xOX"/>
                             <constraint firstItem="SX7-yN-DPD" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="eUD-sk-uLs"/>
                             <constraint firstAttribute="trailing" secondItem="SX7-yN-DPD" secondAttribute="trailing" id="fBU-lp-MRa"/>
@@ -169,12 +182,17 @@
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
+                                <exclude reference="Y3W-GB-Fzv"/>
                                 <exclude reference="qtc-oA-tXk"/>
                                 <exclude reference="SX7-yN-DPD"/>
                                 <exclude reference="KUb-7j-O6Q"/>
                                 <exclude reference="0mu-SK-DVf"/>
                             </mask>
                             <mask key="constraints">
+                                <exclude reference="4tO-sb-tl7"/>
+                                <exclude reference="KJd-Ef-Lnd"/>
+                                <exclude reference="UmG-Mg-PFV"/>
+                                <exclude reference="Znh-NC-IqU"/>
                                 <exclude reference="Hh9-fa-t8U"/>
                                 <exclude reference="MCi-CA-6fI"/>
                                 <exclude reference="cQf-il-xOX"/>
@@ -192,12 +210,17 @@
                         </variation>
                         <variation key="widthClass=compact">
                             <mask key="subviews">
+                                <include reference="Y3W-GB-Fzv"/>
                                 <include reference="qtc-oA-tXk"/>
                                 <include reference="SX7-yN-DPD"/>
                                 <include reference="KUb-7j-O6Q"/>
                                 <include reference="0mu-SK-DVf"/>
                             </mask>
                             <mask key="constraints">
+                                <include reference="4tO-sb-tl7"/>
+                                <include reference="KJd-Ef-Lnd"/>
+                                <include reference="UmG-Mg-PFV"/>
+                                <include reference="Znh-NC-IqU"/>
                                 <include reference="Hh9-fa-t8U"/>
                                 <include reference="MCi-CA-6fI"/>
                                 <include reference="cQf-il-xOX"/>
@@ -214,7 +237,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="TO DO LIST" id="37O-jZ-aGu"/>
+                    <navigationItem key="navigationItem" title="To Do List" id="37O-jZ-aGu"/>
                     <connections>
                         <outlet property="categoryLabel" destination="KUb-7j-O6Q" id="gVw-5E-qMM"/>
                         <outlet property="categorySegmentedControl" destination="0mu-SK-DVf" id="ysC-hc-3le"/>
@@ -598,17 +621,20 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                 <items>
                                     <barButtonItem systemItem="cancel" id="OKG-if-D1t">
+                                        <color key="tintColor" red="0.0078431372549019607" green="0.78431372549019607" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="cancel:" destination="WxU-M4-h1d" id="MW5-Jh-P8F"/>
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="7Hn-pP-3W9"/>
                                     <barButtonItem systemItem="save" id="yQq-jk-386">
+                                        <color key="tintColor" red="0.0078431372549019607" green="0.78431372549019607" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="save:" destination="WxU-M4-h1d" id="bdB-bc-rPN"/>
                                         </connections>
                                     </barButtonItem>
                                 </items>
+                                <color key="barTintColor" red="0.047058823530000002" green="0.21176470589999999" blue="0.37647058820000001" alpha="1" colorSpace="calibratedRGB"/>
                             </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -681,9 +707,14 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="B9h-8j-YYC" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Die-Y3-F5h">
+                    <navigationBar key="navigationBar" alpha="0.0" contentMode="scaleToFill" id="Die-Y3-F5h">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.0078431372549019607" green="0.78431372549019607" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="barTintColor" red="0.047058823529411764" green="0.21176470588235294" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.0078431372549019607" green="0.78431372549019607" blue="0.81960784313725488" alpha="1" colorSpace="calibratedRGB"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

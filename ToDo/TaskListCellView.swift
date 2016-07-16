@@ -15,7 +15,7 @@ protocol TaskCompleted {
 class TaskListCellView: UITableViewCell {
     
     @IBOutlet weak var taskDescription: UILabel!
-    @IBOutlet weak var taskComplete: UIButton!
+    @IBOutlet weak var taskComplete:    UIButton!
     
     var delegate: TaskCompleted?
     private var itemSelected = false
@@ -33,7 +33,6 @@ class TaskListCellView: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         taskDescription.text = ""
     }
 
@@ -44,9 +43,7 @@ class TaskListCellView: UITableViewCell {
     @IBAction func handleTaskComplete(sender: UIButton) {
        
         itemSelected = !itemSelected
-        
         updateButton()
-        
     }
     
     func updateButton()->Void {

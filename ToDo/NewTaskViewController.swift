@@ -22,7 +22,7 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -127,13 +127,8 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
         print(taskModel.taskDescription)
     }
     
-    
     // MARK: Bar Button Item Actions Method
     func doneBarButtonItemClicked() {
-        
-     //   taskModel?.taskDescription = activeTextView!.text.characters.count > 0 ? activeTextView!.text : ""
-     //   print(taskModel?.taskDescription)
-        
         // Dismiss the keyboard by removing it as the first responder.
         activeTextView!.resignFirstResponder()
         
@@ -154,6 +149,9 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
            taskDataAccess.addTask(taskModel)
         }
         
+        let taskVC = navigationController?.childViewControllers[0] as! TaskListViewController
+        
+        taskVC.didModifyDataBase()
         navigationController?.popViewControllerAnimated(true)
     }
 }
