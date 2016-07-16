@@ -21,6 +21,7 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
         super.viewDidLoad()
 
         taskModel = NewTaskModel()
+        let test = ""
     }
 
     override func didReceiveMemoryWarning() {

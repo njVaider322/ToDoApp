@@ -20,6 +20,9 @@
 		428EFEFC1D3964E100179245 /* ImportantCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFEFB1D3964E100179245 /* ImportantCellView.swift */; };
 		428EFEFE1D39650D00179245 /* UrgentCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFEFD1D39650D00179245 /* UrgentCellView.swift */; };
 		428EFF021D397B5400179245 /* NewTaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFF011D397B5400179245 /* NewTaskModel.swift */; };
+		428EFF041D39B31600179245 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428EFF031D39B31600179245 /* GameKit.framework */; };
+		428EFF081D39B55400179245 /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFF061D39B55400179245 /* Tasks+CoreDataProperties.swift */; };
+		428EFF091D39B55400179245 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFF071D39B55400179245 /* Tasks.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +41,9 @@
 		428EFEFB1D3964E100179245 /* ImportantCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImportantCellView.swift; sourceTree = "<group>"; };
 		428EFEFD1D39650D00179245 /* UrgentCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrgentCellView.swift; sourceTree = "<group>"; };
 		428EFF011D397B5400179245 /* NewTaskModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskModel.swift; sourceTree = "<group>"; };
+		428EFF031D39B31600179245 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
+		428EFF061D39B55400179245 /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataProperties.swift"; path = "../Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		428EFF071D39B55400179245 /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tasks.swift; path = ../Tasks.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				428EFF041D39B31600179245 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +86,7 @@
 				42723EEB1D382C26009B8740 /* Assets.xcassets */,
 				42723EED1D382C26009B8740 /* LaunchScreen.storyboard */,
 				42723EF01D382C26009B8740 /* Info.plist */,
-				42723EE81D382C26009B8740 /* ToDo.xcdatamodeld */,
+				428EFF051D39B47F00179245 /* Frameworks */,
 			);
 			path = ToDo;
 			sourceTree = "<group>";
@@ -108,8 +115,19 @@
 			isa = PBXGroup;
 			children = (
 				428EFF011D397B5400179245 /* NewTaskModel.swift */,
+				428EFF061D39B55400179245 /* Tasks+CoreDataProperties.swift */,
+				428EFF071D39B55400179245 /* Tasks.swift */,
+				42723EE81D382C26009B8740 /* ToDo.xcdatamodeld */,
 			);
 			name = Models;
+			sourceTree = "<group>";
+		};
+		428EFF051D39B47F00179245 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				428EFF031D39B31600179245 /* GameKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -185,8 +203,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				428EFEFE1D39650D00179245 /* UrgentCellView.swift in Sources */,
+				428EFF081D39B55400179245 /* Tasks+CoreDataProperties.swift in Sources */,
 				42723EF71D382CCF009B8740 /* TaskListViewController.swift in Sources */,
 				428EFEFA1D3960E900179245 /* DescriptionCellView.swift in Sources */,
+				428EFF091D39B55400179245 /* Tasks.swift in Sources */,
 				42723EFC1D38472A009B8740 /* MatrixCategoryCellView.swift in Sources */,
 				428EFEFC1D3964E100179245 /* ImportantCellView.swift in Sources */,
 				42723EFE1D3850F6009B8740 /* TaskListCellView.swift in Sources */,

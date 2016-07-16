@@ -7,13 +7,15 @@
 //
 
 import Foundation
+import GameKit
 
 class NewTaskModel  {
     var taskDescription = ""
     var priority        = 4
     var taskCompleted   = false
     var isImportant     = false
-    var isUrgent       = false
+    var isUrgent        = false
+    var taskId          = GKRandomSource.sharedRandom().nextInt()
     
     func computeTaskPriority() -> Void {
         
