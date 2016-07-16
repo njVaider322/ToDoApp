@@ -16,17 +16,28 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
     
     var taskModel: NewTaskModel?
     var activeTextView: UITextView?
+    var isUpdatingTask = false;
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         taskModel = NewTaskModel()
-        let test = ""
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func initializeViewController(toEdit task:Tasks) {
+        isUpdatingTask = true
+        
+        taskModel?.taskDescription = task.summary!
+        taskModel?.taskCompleted   = (task.completed?.boolValue)!
+        taskModel?.priority        = Int((task.priority?.intValue)!)
+        taskModel?.taskId          = Int((task.taskId?.intValue)!)
+        
+        taskModel?.setImportantAndUrgent()
     }
     
     // MARK: UITableViewDelegate and UITableViewDataSource Methods
@@ -62,9 +73,11 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
         case 1:
             cell = tableView.dequeueReusableCellWithIdentifier("ImportantCellID", forIndexPath: indexPath) as! ImportantCellView
             (cell as! ImportantCellView).delegate = self
+            (cell as! ImportantCellView).setButtonStatesForPriority((taskModel?.priority)!)
         case 2:
             cell = tableView.dequeueReusableCellWithIdentifier("UrgentCellID", forIndexPath: indexPath) as! UrgentCellView
             (cell as! UrgentCellView).delegate = self
+            (cell as! UrgentCellView).setButtonStatesForPriority((taskModel?.priority)!)
         default:
             cell = UITableViewCell()
         }
@@ -97,11 +110,6 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
         navigationItem.setRightBarButtonItem(doneBarButtonItem, animated: true)
     }
     
-   /* func textViewDidChange(textView: UITextView) {
-        taskModel?.taskDescription = textView.text.characters.count > 0 ? textView.text : ""
-        print(taskModel?.taskDescription)
-    }*/
-    
     // MARK: Bar Button Item Actions Method
     func doneBarButtonItemClicked() {
         
@@ -120,17 +128,14 @@ class NewTaskViewController: UIViewController,UITableViewDelegate,UITableViewDat
     }
     
     @IBAction func save(sender:UIBarButtonItem) {
+        
+        if isUpdatingTask != true {
+            //taskDataAccess.updateTask(taskModel)
+        }
+        else {
+           //taskDataAccess.addNewTask(taskModel)
+        }
+        
         navigationController?.popViewControllerAnimated(true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

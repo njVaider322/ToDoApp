@@ -27,8 +27,6 @@ class UrgentCellView: UITableViewCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     @IBAction func handleTaskUrgentSelection(sender: UIButton) {
@@ -49,5 +47,31 @@ class UrgentCellView: UITableViewCell {
         }
         
         delegate?.didMakeUrgentCellSelection(isUrgent)
+    }
+    
+    func setButtonStatesForPriority(priority:Int)-> Void {
+        
+        switch priority {
+        case 1:
+            isUrgentButton.selected  = true
+            notUrgentButton.selected = false
+            isUrgent                 = true
+        case 2:
+            isUrgentButton.selected  = false
+            notUrgentButton.selected = true
+            isUrgent                 = false
+        case 3:
+            isUrgentButton.selected  = true
+            notUrgentButton.selected = false
+            isUrgent                 = true
+        case 4:
+            isUrgentButton.selected  = false
+            notUrgentButton.selected = true
+            isUrgent                 = false
+        default:
+            isUrgentButton.selected  = false
+            notUrgentButton.selected = false
+            isUrgent                 = false
+        }
     }
 }

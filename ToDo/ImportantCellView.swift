@@ -49,4 +49,30 @@ class ImportantCellView: UITableViewCell {
         
         delegate?.didMakeImportantCellSelection(isImportant)
     }
+    
+    func setButtonStatesForPriority(priority:Int)-> Void {
+        
+        switch priority {
+        case 1:
+            isImportantButton.selected  = true
+            notImportantButton.selected = false
+            isImportant                 = true
+        case 2:
+            isImportantButton.selected  = false
+            notImportantButton.selected = true
+            isImportant                 = false
+        case 3:
+            isImportantButton.selected  = true
+            notImportantButton.selected = false
+            isImportant                 = true
+        case 4:
+            isImportantButton.selected  = false
+            notImportantButton.selected = true
+            isImportant                 = false
+        default:
+            isImportantButton.selected  = false
+            notImportantButton.selected = false
+            isImportant                 = false
+        }
+    }
 }

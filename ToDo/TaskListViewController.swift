@@ -8,6 +8,7 @@
 
 import UIKit
 import Foundation
+import CoreData
 
 class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDataSource,TaskCompleted {
 
@@ -19,10 +20,10 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     @IBOutlet weak var taskListTableView: UITableView!
     @IBOutlet weak var categoryLabel:     UILabel!
     
-    //Collection Stuff
+    var toDoTask: Tasks?
     let matrixCategories = ["IMPORTANT AND URGENT","IMPORTANT BUT NOT URGENT","NOT IMPORTANT BUT URGENT", "NOT IMPORTANT AND NOT URGENT"]
     var mocTaskList = Array<MocTask>()
-    var taskList = Array<MocTask>()
+    var taskList    = Array<MocTask>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -137,13 +138,16 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
     func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
         
         let editRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Edit", handler:{action, indexpath in
-            print("EDIT•ACTION");
+          //  toDoTask = taskList[indexPath.row]
+              self.performSegueWithIdentifier("NewItem", sender: self)
         });
         
         editRowAction.backgroundColor = UIColor(red: 0.298, green: 0.851, blue: 0.3922, alpha: 1.0);
         
         let deleteRowAction = UITableViewRowAction(style: UITableViewRowActionStyle.Default, title: "Delete", handler:{action, indexpath in
-            print("DELETE•ACTION");
+            //  self.toDoTask = taskList[indexPath.row]
+            
+            //taskDataAccess.deleteTask(forId self.toDoTask?.taskId?.intValue)
         });
         
         return [deleteRowAction, editRowAction];
@@ -251,17 +255,19 @@ class TaskListViewController: UIViewController,UITableViewDelegate,UITableViewDa
       
         let selectedTask = taskList[selectItem]
         selectedTask.completed = isCompleted
+        //  self.toDoTask = taskList[selectItem]
+        //taskDataAccess.setTaskAsCompleted(isCompleted, forId:self.toDoTask?.taskId?.intValue)
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    // MARK: - prepareForSegue Method
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        
+        if segue.identifier == "NewItem" {
+            
+            let editTask = segue.destinationViewController as! NewTaskViewController
+            editTask.initializeViewController(toEdit: toDoTask!)
+        }
     }
-    */
 }
 
 class MocTask {

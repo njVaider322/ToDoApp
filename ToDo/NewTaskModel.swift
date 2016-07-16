@@ -32,4 +32,25 @@ class NewTaskModel  {
            priority  = 4
         }
     }
+    
+    func setImportantAndUrgent()-> Void {
+        
+        switch priority {
+        case 1:
+            isImportant = true
+            isUrgent    = true
+        case 2:
+            isImportant = true
+            isUrgent    = false
+        case 3:
+            isImportant = false
+            isUrgent    = true
+        case 4:
+            isImportant = false
+            isUrgent    = false
+        default:
+            isImportant = false
+            isUrgent    = false
+        }
+    }
 }
