@@ -3,8 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
-        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -121,63 +119,6 @@
                                     </barButtonItem>
                                 </items>
                             </toolbar>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-1h-hqh">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="22" id="fCF-DS-Joq"/>
-                                    <constraint firstAttribute="width" constant="90" id="lPd-81-Acr"/>
-                                </constraints>
-                                <state key="normal" title="1"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="fCF-DS-Joq"/>
-                                        <exclude reference="lPd-81-Acr"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="fCF-DS-Joq"/>
-                                        <include reference="lPd-81-Acr"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="handleSelectCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="RbQ-Ri-V4T"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgz-SW-jMe">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="2"/>
-                                <connections>
-                                    <action selector="handleSelectCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Axl-xR-gUa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2km-Tv-Sf2">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="90" id="ocx-Ou-8Bh"/>
-                                </constraints>
-                                <state key="normal" title="3"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="ocx-Ou-8Bh"/>
-                                    </mask>
-                                </variation>
-                                <variation key="widthClass=compact">
-                                    <mask key="constraints">
-                                        <include reference="ocx-Ou-8Bh"/>
-                                    </mask>
-                                </variation>
-                                <connections>
-                                    <action selector="handleSelectCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SLG-bv-b23"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QvT-QZ-gQq">
-                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
-                                <state key="normal" title="4"/>
-                                <connections>
-                                    <action selector="handleSelectCategory:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zCs-TN-0AZ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KUb-7j-O6Q">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                 <constraints>
@@ -197,71 +138,52 @@
                                     </mask>
                                 </variation>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="0mu-SK-DVf">
+                                <rect key="frame" x="-60" y="-14" width="121" height="29"/>
+                                <segments>
+                                    <segment title="1"/>
+                                    <segment title="2"/>
+                                    <segment title="3"/>
+                                    <segment title="4"/>
+                                </segments>
+                                <connections>
+                                    <action selector="handleSelectedSegmentDidChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="6mY-9s-OtW"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="2km-Tv-Sf2" firstAttribute="leading" secondItem="wgz-SW-jMe" secondAttribute="trailing" constant="2" id="4IL-LR-c7J"/>
-                            <constraint firstItem="2km-Tv-Sf2" firstAttribute="leading" secondItem="LFN-1h-hqh" secondAttribute="trailing" constant="89" id="4LB-x9-isp"/>
-                            <constraint firstItem="2km-Tv-Sf2" firstAttribute="baseline" secondItem="QvT-QZ-gQq" secondAttribute="firstBaseline" id="69O-vy-zuz"/>
-                            <constraint firstItem="KUb-7j-O6Q" firstAttribute="leading" secondItem="LFN-1h-hqh" secondAttribute="leading" id="8EN-Sf-kh3"/>
-                            <constraint firstItem="LFN-1h-hqh" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="9fN-rc-2a9"/>
                             <constraint firstItem="KUb-7j-O6Q" firstAttribute="trailing" secondItem="qtc-oA-tXk" secondAttribute="trailing" id="BBK-Nw-fs6"/>
-                            <constraint firstItem="wgz-SW-jMe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="87" id="Dt3-mZ-dHy"/>
-                            <constraint firstItem="LFN-1h-hqh" firstAttribute="baseline" secondItem="wgz-SW-jMe" secondAttribute="firstBaseline" id="FiJ-bw-YNr"/>
-                            <constraint firstItem="2km-Tv-Sf2" firstAttribute="top" secondItem="QvT-QZ-gQq" secondAttribute="top" id="Gc2-fv-naF"/>
+                            <constraint firstItem="0mu-SK-DVf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="Hh9-fa-t8U"/>
                             <constraint firstItem="qtc-oA-tXk" firstAttribute="centerX" secondItem="SX7-yN-DPD" secondAttribute="centerX" id="IKs-Io-naJ"/>
+                            <constraint firstItem="0mu-SK-DVf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="MCi-CA-6fI"/>
+                            <constraint firstItem="KUb-7j-O6Q" firstAttribute="top" secondItem="0mu-SK-DVf" secondAttribute="bottom" constant="8" symbolic="YES" id="NSL-xd-hM0"/>
                             <constraint firstItem="KUb-7j-O6Q" firstAttribute="leading" secondItem="qtc-oA-tXk" secondAttribute="leading" id="Oq6-bf-Wkg"/>
-                            <constraint firstItem="LFN-1h-hqh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" symbolic="YES" id="Pay-cK-GWK"/>
-                            <constraint firstItem="wgz-SW-jMe" firstAttribute="baseline" secondItem="2km-Tv-Sf2" secondAttribute="baseline" id="Pim-J0-pwh"/>
                             <constraint firstItem="qtc-oA-tXk" firstAttribute="top" secondItem="KUb-7j-O6Q" secondAttribute="bottom" constant="8" symbolic="YES" id="Us4-kG-MCO"/>
-                            <constraint firstItem="KUb-7j-O6Q" firstAttribute="trailing" secondItem="QvT-QZ-gQq" secondAttribute="trailing" id="YC4-QC-68J"/>
-                            <constraint firstItem="QvT-QZ-gQq" firstAttribute="leading" secondItem="2km-Tv-Sf2" secondAttribute="trailing" constant="1" id="Yrv-dp-8wB"/>
+                            <constraint firstItem="0mu-SK-DVf" firstAttribute="trailing" secondItem="KUb-7j-O6Q" secondAttribute="trailing" id="cQf-il-xOX"/>
                             <constraint firstItem="SX7-yN-DPD" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="eUD-sk-uLs"/>
-                            <constraint firstItem="2km-Tv-Sf2" firstAttribute="baseline" secondItem="QvT-QZ-gQq" secondAttribute="baseline" id="efS-Bk-5xi"/>
                             <constraint firstAttribute="trailing" secondItem="SX7-yN-DPD" secondAttribute="trailing" id="fBU-lp-MRa"/>
-                            <constraint firstItem="wgz-SW-jMe" firstAttribute="top" secondItem="2km-Tv-Sf2" secondAttribute="top" id="iyP-xT-IX2"/>
-                            <constraint firstItem="QvT-QZ-gQq" firstAttribute="baseline" secondItem="2km-Tv-Sf2" secondAttribute="firstBaseline" id="ksO-Na-EDA"/>
-                            <constraint firstItem="KUb-7j-O6Q" firstAttribute="top" secondItem="LFN-1h-hqh" secondAttribute="bottom" constant="8" symbolic="YES" id="pBP-ln-DzG"/>
+                            <constraint firstItem="0mu-SK-DVf" firstAttribute="leading" secondItem="KUb-7j-O6Q" secondAttribute="leading" id="nbe-rx-0VV"/>
                             <constraint firstItem="SX7-yN-DPD" firstAttribute="top" secondItem="qtc-oA-tXk" secondAttribute="bottom" id="pkn-lk-Tlu"/>
-                            <constraint firstItem="LFN-1h-hqh" firstAttribute="baseline" secondItem="wgz-SW-jMe" secondAttribute="baseline" id="q9d-yi-hYe"/>
-                            <constraint firstItem="LFN-1h-hqh" firstAttribute="top" secondItem="wgz-SW-jMe" secondAttribute="top" id="qCM-vz-HB2"/>
-                            <constraint firstItem="wgz-SW-jMe" firstAttribute="baseline" secondItem="LFN-1h-hqh" secondAttribute="firstBaseline" id="s0K-An-ebA"/>
                             <constraint firstItem="SX7-yN-DPD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="uiz-Gb-8hb"/>
                         </constraints>
                         <variation key="default">
                             <mask key="subviews">
                                 <exclude reference="qtc-oA-tXk"/>
                                 <exclude reference="SX7-yN-DPD"/>
-                                <exclude reference="LFN-1h-hqh"/>
-                                <exclude reference="wgz-SW-jMe"/>
-                                <exclude reference="2km-Tv-Sf2"/>
-                                <exclude reference="QvT-QZ-gQq"/>
                                 <exclude reference="KUb-7j-O6Q"/>
+                                <exclude reference="0mu-SK-DVf"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="9fN-rc-2a9"/>
-                                <exclude reference="FiJ-bw-YNr"/>
-                                <exclude reference="Pay-cK-GWK"/>
-                                <exclude reference="q9d-yi-hYe"/>
-                                <exclude reference="qCM-vz-HB2"/>
-                                <exclude reference="8EN-Sf-kh3"/>
+                                <exclude reference="Hh9-fa-t8U"/>
+                                <exclude reference="MCi-CA-6fI"/>
+                                <exclude reference="cQf-il-xOX"/>
+                                <exclude reference="nbe-rx-0VV"/>
                                 <exclude reference="BBK-Nw-fs6"/>
+                                <exclude reference="NSL-xd-hM0"/>
                                 <exclude reference="Oq6-bf-Wkg"/>
-                                <exclude reference="YC4-QC-68J"/>
-                                <exclude reference="pBP-ln-DzG"/>
-                                <exclude reference="Dt3-mZ-dHy"/>
-                                <exclude reference="Pim-J0-pwh"/>
-                                <exclude reference="iyP-xT-IX2"/>
-                                <exclude reference="s0K-An-ebA"/>
                                 <exclude reference="IKs-Io-naJ"/>
                                 <exclude reference="Us4-kG-MCO"/>
-                                <exclude reference="4IL-LR-c7J"/>
-                                <exclude reference="4LB-x9-isp"/>
-                                <exclude reference="69O-vy-zuz"/>
-                                <exclude reference="Gc2-fv-naF"/>
-                                <exclude reference="efS-Bk-5xi"/>
-                                <exclude reference="Yrv-dp-8wB"/>
-                                <exclude reference="ksO-Na-EDA"/>
                                 <exclude reference="eUD-sk-uLs"/>
                                 <exclude reference="fBU-lp-MRa"/>
                                 <exclude reference="pkn-lk-Tlu"/>
@@ -272,36 +194,19 @@
                             <mask key="subviews">
                                 <include reference="qtc-oA-tXk"/>
                                 <include reference="SX7-yN-DPD"/>
-                                <include reference="LFN-1h-hqh"/>
-                                <include reference="wgz-SW-jMe"/>
-                                <include reference="2km-Tv-Sf2"/>
-                                <include reference="QvT-QZ-gQq"/>
                                 <include reference="KUb-7j-O6Q"/>
+                                <include reference="0mu-SK-DVf"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="9fN-rc-2a9"/>
-                                <include reference="FiJ-bw-YNr"/>
-                                <include reference="Pay-cK-GWK"/>
-                                <include reference="q9d-yi-hYe"/>
-                                <include reference="qCM-vz-HB2"/>
-                                <include reference="8EN-Sf-kh3"/>
+                                <include reference="Hh9-fa-t8U"/>
+                                <include reference="MCi-CA-6fI"/>
+                                <include reference="cQf-il-xOX"/>
+                                <include reference="nbe-rx-0VV"/>
                                 <include reference="BBK-Nw-fs6"/>
+                                <include reference="NSL-xd-hM0"/>
                                 <include reference="Oq6-bf-Wkg"/>
-                                <include reference="YC4-QC-68J"/>
-                                <include reference="pBP-ln-DzG"/>
-                                <include reference="Dt3-mZ-dHy"/>
-                                <include reference="Pim-J0-pwh"/>
-                                <include reference="iyP-xT-IX2"/>
-                                <include reference="s0K-An-ebA"/>
                                 <include reference="IKs-Io-naJ"/>
                                 <include reference="Us4-kG-MCO"/>
-                                <include reference="4IL-LR-c7J"/>
-                                <include reference="4LB-x9-isp"/>
-                                <include reference="69O-vy-zuz"/>
-                                <include reference="Gc2-fv-naF"/>
-                                <include reference="efS-Bk-5xi"/>
-                                <include reference="Yrv-dp-8wB"/>
-                                <include reference="ksO-Na-EDA"/>
                                 <include reference="eUD-sk-uLs"/>
                                 <include reference="fBU-lp-MRa"/>
                                 <include reference="pkn-lk-Tlu"/>
@@ -312,10 +217,8 @@
                     <navigationItem key="navigationItem" title="TO DO LIST" id="37O-jZ-aGu"/>
                     <connections>
                         <outlet property="categoryLabel" destination="KUb-7j-O6Q" id="gVw-5E-qMM"/>
-                        <outlet property="quadFourButton" destination="QvT-QZ-gQq" id="Eyy-cx-Gub"/>
-                        <outlet property="quadOneButton" destination="LFN-1h-hqh" id="xhe-mg-uPW"/>
-                        <outlet property="quadThreeButton" destination="2km-Tv-Sf2" id="Q4Y-N0-taG"/>
-                        <outlet property="quadTwoButton" destination="wgz-SW-jMe" id="HGO-BS-otH"/>
+                        <outlet property="categorySegmentedControl" destination="0mu-SK-DVf" id="ysC-hc-3le"/>
+                        <outlet property="itemsCountBarButton" destination="DXf-j4-ADR" id="Ph3-M9-Fab"/>
                         <outlet property="taskListTableView" destination="qtc-oA-tXk" id="egR-B6-R0u"/>
                     </connections>
                 </viewController>

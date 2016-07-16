@@ -23,6 +23,7 @@
 		428EFF041D39B31600179245 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 428EFF031D39B31600179245 /* GameKit.framework */; };
 		428EFF081D39B55400179245 /* Tasks+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFF061D39B55400179245 /* Tasks+CoreDataProperties.swift */; };
 		428EFF091D39B55400179245 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFF071D39B55400179245 /* Tasks.swift */; };
+		428EFF0C1D39ED2B00179245 /* TaskDataAccess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFF0B1D39ED2B00179245 /* TaskDataAccess.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		428EFF031D39B31600179245 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		428EFF061D39B55400179245 /* Tasks+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Tasks+CoreDataProperties.swift"; path = "../Tasks+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		428EFF071D39B55400179245 /* Tasks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tasks.swift; path = ../Tasks.swift; sourceTree = "<group>"; };
+		428EFF0B1D39ED2B00179245 /* TaskDataAccess.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskDataAccess.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 		42723EE01D382C26009B8740 /* ToDo */ = {
 			isa = PBXGroup;
 			children = (
+				428EFF0A1D39E98A00179245 /* DataAccess */,
 				428EFF001D397B3400179245 /* Models */,
 				428EFEFF1D39734300179245 /* Controllers */,
 				42723EF81D384344009B8740 /* Cells */,
@@ -128,6 +131,14 @@
 				428EFF031D39B31600179245 /* GameKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		428EFF0A1D39E98A00179245 /* DataAccess */ = {
+			isa = PBXGroup;
+			children = (
+				428EFF0B1D39ED2B00179245 /* TaskDataAccess.swift */,
+			);
+			name = DataAccess;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,6 +218,7 @@
 				42723EF71D382CCF009B8740 /* TaskListViewController.swift in Sources */,
 				428EFEFA1D3960E900179245 /* DescriptionCellView.swift in Sources */,
 				428EFF091D39B55400179245 /* Tasks.swift in Sources */,
+				428EFF0C1D39ED2B00179245 /* TaskDataAccess.swift in Sources */,
 				42723EFC1D38472A009B8740 /* MatrixCategoryCellView.swift in Sources */,
 				428EFEFC1D3964E100179245 /* ImportantCellView.swift in Sources */,
 				42723EFE1D3850F6009B8740 /* TaskListCellView.swift in Sources */,
