@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 47;
+	objectVersion = 48;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,7 +13,6 @@
 		42723EEC1D382C26009B8740 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42723EEB1D382C26009B8740 /* Assets.xcassets */; };
 		42723EEF1D382C26009B8740 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42723EED1D382C26009B8740 /* LaunchScreen.storyboard */; };
 		42723EF71D382CCF009B8740 /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42723EF61D382CCF009B8740 /* TaskListViewController.swift */; };
-		42723EFC1D38472A009B8740 /* MatrixCategoryCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42723EFB1D38472A009B8740 /* MatrixCategoryCellView.swift */; };
 		42723EFE1D3850F6009B8740 /* TaskListCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42723EFD1D3850F6009B8740 /* TaskListCellView.swift */; };
 		428EFEF81D395FCF00179245 /* NewTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFEF71D395FCF00179245 /* NewTaskViewController.swift */; };
 		428EFEFA1D3960E900179245 /* DescriptionCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 428EFEF91D3960E900179245 /* DescriptionCellView.swift */; };
@@ -35,7 +34,6 @@
 		42723EEE1D382C26009B8740 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42723EF01D382C26009B8740 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42723EF61D382CCF009B8740 /* TaskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
-		42723EFB1D38472A009B8740 /* MatrixCategoryCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixCategoryCellView.swift; sourceTree = "<group>"; };
 		42723EFD1D3850F6009B8740 /* TaskListCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListCellView.swift; sourceTree = "<group>"; };
 		428EFEF71D395FCF00179245 /* NewTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTaskViewController.swift; sourceTree = "<group>"; };
 		428EFEF91D3960E900179245 /* DescriptionCellView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DescriptionCellView.swift; sourceTree = "<group>"; };
@@ -84,7 +82,6 @@
 				428EFEFF1D39734300179245 /* Controllers */,
 				42723EF81D384344009B8740 /* Cells */,
 				42723EE11D382C26009B8740 /* AppDelegate.swift */,
-				42723EFB1D38472A009B8740 /* MatrixCategoryCellView.swift */,
 				42723EE51D382C26009B8740 /* Main.storyboard */,
 				42723EEB1D382C26009B8740 /* Assets.xcassets */,
 				42723EED1D382C26009B8740 /* LaunchScreen.storyboard */,
@@ -173,12 +170,11 @@
 				TargetAttributes = {
 					42723EDD1D382C26009B8740 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = FJ96QPNXHE;
 					};
 				};
 			};
 			buildConfigurationList = 42723ED91D382C26009B8740 /* Build configuration list for PBXProject "ToDo" */;
-			compatibilityVersion = "Xcode 6.3";
+			compatibilityVersion = "Xcode 8.0";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -219,7 +215,6 @@
 				428EFEFA1D3960E900179245 /* DescriptionCellView.swift in Sources */,
 				428EFF091D39B55400179245 /* Tasks.swift in Sources */,
 				428EFF0C1D39ED2B00179245 /* TaskDataAccess.swift in Sources */,
-				42723EFC1D38472A009B8740 /* MatrixCategoryCellView.swift in Sources */,
 				428EFEFC1D3964E100179245 /* ImportantCellView.swift in Sources */,
 				42723EFE1D3850F6009B8740 /* TaskListCellView.swift in Sources */,
 				42723EEA1D382C26009B8740 /* ToDo.xcdatamodeld in Sources */,
@@ -338,10 +333,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8RL5LLLYQD;
 				INFOPLIST_FILE = ToDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Borg.ToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -349,10 +346,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 8RL5LLLYQD;
 				INFOPLIST_FILE = ToDo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.Borg.ToDo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
